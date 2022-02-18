@@ -20,7 +20,7 @@ class Shelter(models.Model):
         verbose_name_plural = 'Shelters'
 
     def __str__(self):
-        return f'Shelter name: {self.name}'
+        return f'{self.name}'
 
 
 class User(AbstractUser):

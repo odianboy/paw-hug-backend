@@ -1,8 +1,8 @@
-#Intro
+# Intro
 <hr />
 
 Backend part for Paw Hug site.
-#Installation
+# Installation
 <hr />
 
 Copy `.env.example` to `.env` and fill variables
@@ -12,7 +12,7 @@ This is just web application, so you need:
 1. python >= 3.9
 2. postgres >= 13
 
-#Manual
+# Manual
 <hr />
 
 1. Create virtual environment
