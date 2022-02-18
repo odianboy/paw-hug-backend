@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from .views import (
     PetView,
@@ -14,14 +14,24 @@ from .views import (
 )
 
 urlpatterns = [
-    path('pets/', PetView.as_view()),
-    path('pets/<uuid:pk>', SinglePetView.as_view()),
-    path('breeds/', BreedView.as_view()),
-    path('breeds/<int:pk>', SingleBreedView.as_view()),
-    path('healths/', HealthView.as_view()),
-    path('healths/<int:pk>', SingleHealthView.as_view()),
-    path('address/', AddressView.as_view()),
-    path('address/<int:pk>', SingleAddressView.as_view()),
-    path('classification/', ClassificationView.as_view()),
-    path('classification/<int:pk>', SingleClassificationView.as_view()),
+    path('pets/', include([
+        path('', PetView.as_view()),
+        path('<uuid:pk>/', SinglePetView.as_view())
+    ])),
+    path('breeds/', include([
+        path('', BreedView.as_view()),
+        path('<int:pk>/', SingleBreedView.as_view()),
+    ])),
+    path('healths/', include([
+        path('', HealthView.as_view()),
+        path('<int:pk>/', SingleHealthView.as_view()),
+    ])),
+    path('address/', include([
+        path('', AddressView.as_view()),
+        path('<int:pk>/', SingleAddressView.as_view()),
+    ])),
+    path('classification/', include([
+        path('', ClassificationView.as_view()),
+        path('classification/<int:pk>', SingleClassificationView.as_view())
+    ])),
 ]

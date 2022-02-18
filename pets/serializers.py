@@ -10,6 +10,11 @@ from .models import (
 
 
 class PetSerializer(serializers.ModelSerializer):
+    health = serializers.SerializerMethodField()
+    classification = serializers.SerializerMethodField()
+    bread = serializers.SerializerMethodField()
+    address = serializers.SerializerMethodField()
+
     class Meta:
         model = Pet
         fields = ('id', 'name', 'birthday', 'photo',
@@ -17,6 +22,18 @@ class PetSerializer(serializers.ModelSerializer):
         swagger_schema_fields = {
             'description': 'Model pet',
         }
+
+    def get_health(self, obj: Pet) -> str:
+        return obj.health.name
+
+    def get_classification(self, obj: Pet) -> str:
+        return obj.classification.name
+
+    def get_bread(self, obj: Pet) -> str:
+        return obj.bread.name
+
+    def get_address(self, obj: Pet) -> str:
+        return obj.address.city
 
 
 class BreedSerializer(serializers.ModelSerializer):

@@ -2,6 +2,11 @@
 <hr />
 
 Backend part for Paw Hug site.
+
+Address documentation:
+
+`/api/v1/docs/swagger/`
+
 # Installation
 <hr />
 

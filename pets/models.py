@@ -13,6 +13,7 @@ class Health(models.Model):
         db_table = 'pets_health'
         verbose_name = 'Health'
         verbose_name_plural = 'Healths'
+        ordering = ['-id']
 
     def __str__(self):
         return f'{self.name}'
@@ -28,6 +29,7 @@ class Breed(models.Model):
         db_table = 'pets_breed'
         verbose_name = 'Breed'
         verbose_name_plural = 'Breeds'
+        ordering = ['-id']
 
     def __str__(self):
         return f'{self.name}'
@@ -45,6 +47,7 @@ class Address(models.Model):
         db_table = 'pets_address'
         verbose_name = 'Address'
         verbose_name_plural = 'Addresses'
+        ordering = ['-id']
 
     def __str__(self):
         return f'{self.city}'
@@ -60,6 +63,7 @@ class Classification(models.Model):
         db_table = 'pets_classification'
         verbose_name = 'Classification'
         verbose_name_plural = 'Classifications'
+        ordering = ['-id']
 
     def __str__(self):
         return f'{self.name}'
@@ -82,6 +86,7 @@ class Pet(models.Model):
         db_table = 'pets_pet'
         verbose_name = 'Pet'
         verbose_name_plural = 'Pets'
+        ordering = ['-id']
 
     def __str__(self):
         return f'{self.name}'

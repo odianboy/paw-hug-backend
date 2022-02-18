@@ -18,7 +18,7 @@ from .models import (
 
 
 class PetView(ListCreateAPIView):
-    """Unload and create for a pet Model"""
+    """Unload and create for a pet model"""
 
     queryset = Pet.objects.all()
     serializer_class = PetSerializer
@@ -31,7 +31,7 @@ class SinglePetView(RetrieveUpdateDestroyAPIView):
 
 
 class BreedView(ListCreateAPIView):
-    """Unload and create for a breed Model"""
+    """Unload and create for a breed model"""
     queryset = Breed.objects.all()
     serializer_class = BreedSerializer
 
@@ -43,7 +43,7 @@ class SingleBreedView(RetrieveUpdateDestroyAPIView):
 
 
 class HealthView(ListCreateAPIView):
-    """Unload and create for a health Model"""
+    """Unload and create for a health model"""
     queryset = Health.objects.all()
     serializer_class = HealthSerializer
 
@@ -55,7 +55,7 @@ class SingleHealthView(RetrieveUpdateDestroyAPIView):
 
 
 class AddressView(ListCreateAPIView):
-    """Unload and create for a address Model"""
+    """Unload and create for a address model"""
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
 
@@ -67,7 +67,7 @@ class SingleAddressView(RetrieveUpdateDestroyAPIView):
 
 
 class ClassificationView(ListCreateAPIView):
-    """Unload and create for a classification Model"""
+    """Unload and create for a classification model"""
     queryset = Classification.objects.all()
     serializer_class = ClassificationSerializer
 

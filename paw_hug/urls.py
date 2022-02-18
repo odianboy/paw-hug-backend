@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include([
         path('', include('pets.urls')),
-    ]))
+        path('docs/', include(doc_urls)),
+        path('users/', include('users.urls'))
+    ])),
 ]
-
-urlpatterns += doc_urls
