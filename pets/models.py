@@ -1,5 +1,6 @@
 import uuid
 
+from datetime import date
 from django.db import models
 
 
@@ -15,7 +16,7 @@ class Health(models.Model):
         verbose_name_plural = 'Healths'
         ordering = ['-id']
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.name}'
 
 
@@ -31,7 +32,7 @@ class Breed(models.Model):
         verbose_name_plural = 'Breeds'
         ordering = ['-id']
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.name}'
 
 
@@ -49,7 +50,7 @@ class Address(models.Model):
         verbose_name_plural = 'Addresses'
         ordering = ['-id']
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.city}'
 
 
@@ -65,7 +66,7 @@ class Classification(models.Model):
         verbose_name_plural = 'Classifications'
         ordering = ['-id']
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.name}'
 
 
@@ -81,6 +82,7 @@ class Pet(models.Model):
     health = models.ForeignKey(Health, on_delete=models.PROTECT, related_name='pets')
     bread = models.ForeignKey(Breed, on_delete=models.PROTECT, related_name='pets')
     address = models.ForeignKey(Address, on_delete=models.PROTECT, related_name='pets')
+    publication_date = models.DateField(auto_now_add=True)
 
     class Meta:
         db_table = 'pets_pet'
@@ -88,5 +90,8 @@ class Pet(models.Model):
         verbose_name_plural = 'Pets'
         ordering = ['-id']
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.name}'
+
+    def get_interval(self) -> int:
+        return (date.today() - self.publication_date).days

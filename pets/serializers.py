@@ -14,11 +14,13 @@ class PetSerializer(serializers.ModelSerializer):
     classification = serializers.SerializerMethodField()
     bread = serializers.SerializerMethodField()
     address = serializers.SerializerMethodField()
+    interval = serializers.SerializerMethodField()
 
     class Meta:
         model = Pet
         fields = ('id', 'name', 'birthday', 'photo',
-                  'description', 'is_home', 'classification', 'health', 'bread', 'address')
+                  'description', 'is_home', 'classification',
+                  'health', 'bread', 'address', 'publication_date', 'interval')
         swagger_schema_fields = {
             'description': 'Model pet',
         }
@@ -34,6 +36,9 @@ class PetSerializer(serializers.ModelSerializer):
 
     def get_address(self, obj: Pet) -> str:
         return obj.address.city
+
+    def get_interval(self, obj: Pet) -> int:
+        return obj.get_interval()
 
 
 class BreedSerializer(serializers.ModelSerializer):

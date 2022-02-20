@@ -20,7 +20,7 @@ class Shelter(models.Model):
         verbose_name_plural = 'Shelters'
         ordering = ['-id']
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.name}'
 
 
@@ -39,3 +39,6 @@ class User(AbstractUser):
         verbose_name = 'User'
         verbose_name_plural = 'Users'
         ordering = ['-id']
+
+    def __str__(self) -> str:
+        return f'{self.username}'

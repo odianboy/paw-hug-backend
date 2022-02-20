@@ -78,6 +78,7 @@ class AdminPet(admin.ModelAdmin):
         'name',
         'birthday',
         'is_home',
+        'publication_date',
     )
     list_filter = (
         'name',
